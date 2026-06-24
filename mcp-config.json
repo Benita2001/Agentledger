@@ -1,0 +1,30 @@
+{
+  "_readme": "Add the mcpServers block to your Claude Desktop or Claude Code MCP config file",
+  "mcpServers": {
+    "agentledger": {
+      "command": "npx",
+      "args": ["agentledger-mcp"],
+      "env": {
+        "PRIVATE_KEY": "your_evm_wallet_private_key_here",
+        "OG_RPC_URL": "https://evmrpc-testnet.0g.ai",
+        "OG_INDEXER_RPC": "https://indexer-storage-testnet-turbo.0g.ai",
+        "AGENT_ID": "your-agent-name-here"
+      }
+    }
+  },
+  "_local_dev_alternative": {
+    "_note": "Use this instead if running from cloned source",
+    "mcpServers": {
+      "agentledger": {
+        "command": "npx",
+        "args": ["tsx", "/Users/admin/Q2 Hackathon/OgLabs/agentledger/src/index.ts"],
+        "env": {
+          "PRIVATE_KEY": "your_evm_wallet_private_key_here",
+          "OG_RPC_URL": "https://evmrpc-testnet.0g.ai",
+          "OG_INDEXER_RPC": "https://indexer-storage-testnet-turbo.0g.ai",
+          "AGENT_ID": "your-agent-name-here"
+        }
+      }
+    }
+  }
+}

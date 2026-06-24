@@ -1,0 +1,39 @@
+{
+  "name": "@0xbeni/agentledger-mcp",
+  "version": "1.0.1",
+  "description": "MCP server that stores AI agent reasoning traces permanently on 0G Storage — immutable, verifiable, tamper-proof",
+  "author": "Benita2001",
+  "license": "MIT",
+  "bin": {
+    "agentledger-mcp": "./bin/agentledger-mcp.cjs"
+  },
+  "files": [
+    "dist",
+    "bin",
+    ".env.example",
+    "README.md",
+    "INSTALL.md"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc && chmod +x dist/index.js",
+    "demo": "tsx demo/agent-demo.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "@0gfoundation/0g-storage-ts-sdk": "^1.2.10",
+    "@types/uuid": "^10.0.0",
+    "dotenv": "^17.4.2",
+    "ethers": "^6.13.1",
+    "fastmcp": "^4.3.2",
+    "uuid": "^14.0.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
