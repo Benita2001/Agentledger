@@ -2,7 +2,7 @@
 
 > Your agent thinks. We store the proof.
 
-AgentLedger is an MCP server that captures AI agent reasoning traces and stores them permanently on **0G Storage** — decentralized, immutable, and verifiable. Every decision an agent makes gets a cryptographic root hash receipt. Decisions are chained — each one references the previous root hash — so history cannot be rewritten without detection.
+AgentLedger is an MCP server that captures AI agent reasoning traces and stores them permanently on **0G Storage** — decentralized, immutable, and verifiable. Every decision an agent makes gets a cryptographic root hash receipt. Decisions are chained — each one references the previous root hash so history cannot be rewritten without detection.
 
 The entire system runs on 0G. Reasoning traces go to **0G Storage**. The agent decision index lives in **0G KV Store**. Zero local state. Nothing on your server.
 
@@ -14,10 +14,10 @@ The entire system runs on 0G. Reasoning traces go to **0G Storage**. The agent d
 >
 > | What | Detail |
 > |------|--------|
-> | **What it is** | MCP server — plug into any AI agent in one config block |
+> | **What it is** | MCP server plug into any AI agent in one config block |
 > | **What it does** | Captures every reasoning step an agent takes, stores it permanently on 0G Storage |
-> | **0G usage** | 0G Storage (traces) + 0G KV Store (index) — zero local state |
-> | **Chain integrity** | Each decision chains to the previous root hash — tampering is mathematically detectable |
+> | **0G usage** | 0G Storage (traces) + 0G KV Store (index) zero local state |
+> | **Chain integrity** | Each decision chains to the previous root hash tampering is mathematically detectable |
 > | **Install** | `npm install -g @0xbeni/agentledger-mcp` |
 > | **No wallet needed** | AgentLedger uses sponsored storage — we absorb all 0G gas costs |
 > | **Live proof** | 3 real transactions on 0G Galileo testnet — see below |
@@ -27,11 +27,11 @@ The entire system runs on 0G. Reasoning traces go to **0G Storage**. The agent d
 >
 > ## The Problem
 >
-> AI agents are making increasingly consequential decisions — financial, medical, legal, operational. But their reasoning is invisible and ephemeral. The moment a decision is made, the thinking behind it disappears forever.
+> AI agents are making increasingly consequential decisions financial, medical, legal, operational. But their reasoning is invisible and ephemeral. The moment a decision is made, the thinking behind it disappears forever.
 >
 > When an AI trading agent says "I called BTC going up three weeks ago" — you cannot verify that.
-> When an AI medical agent recommends a treatment — there is no audit trail.
-> When an AI legal agent drafts a contract clause — nobody can prove what reasoning it used.
+> When an AI medical agent recommends a treatment there is no audit trail.
+> When an AI legal agent drafts a contract clause nobody can prove what reasoning it used.
 >
 > There is no accountability layer for AI decision-making. AgentLedger builds it.
 >
@@ -41,8 +41,8 @@ The entire system runs on 0G. Reasoning traces go to **0G Storage**. The agent d
 >
 > AgentLedger intercepts every agent decision and:
 >
-> 1. Captures the full reasoning chain — every thought step, every tool called, every conclusion
-> 2. Encodes it as structured JSON and uploads to **0G Storage** via MemData — returns a root hash as cryptographic proof
+> 1. Captures the full reasoning chain every thought step, every tool called, every conclusion
+> 2. Encodes it as structured JSON and uploads to **0G Storage** via MemData returns a root hash as cryptographic proof
 > 3. Chains each decision to the previous one via `prev_decision_hash` — tampering with any entry breaks the chain
 > 4. Updates the agent's decision index in **0G KV Store** — the complete ledger lives on-chain, nothing local
 >
@@ -59,29 +59,29 @@ The entire system runs on 0G. Reasoning traces go to **0G Storage**. The agent d
 > AgentLedger is infrastructure. Any AI agent that makes decisions benefits from an immutable, verifiable audit trail.
 >
 > ### 🤖 AI Trading Agents
-> Trading agents claim alpha. AgentLedger makes those claims verifiable. Every signal an agent generates — the market data it analyzed, the reasoning it used, the confidence level, the final call — gets stored on 0G with a timestamp and root hash. You can prove the agent made that call before the market moved. No cherry-picking, no revisionism.
+> Trading agents claim alpha. AgentLedger makes those claims verifiable. Every signal an agent generates the market data it analyzed, the reasoning it used, the confidence level, the final call gets stored on 0G with a timestamp and root hash. You can prove the agent made that call before the market moved. No cherry-picking, no revisionism.
 >
 > **Example:** A trading agent logs every BUY, SELL, and HOLD decision to AgentLedger. A month later, the full reasoning chain for every decision is retrievable — timestamped and tamper-proof on 0G.
 >
 > ### ⚖️ Trading Signal Judges & Evaluators
 > Signal providers in crypto claim incredible track records. With AgentLedger, evaluators can audit any agent's full decision history on-chain. Every call is timestamped, every reasoning trace is verifiable. Run `audit_agent` and get cryptographic proof of whether the chain is INTACT or BROKEN.
 >
-> **Example:** A fund evaluating an AI signal provider runs `audit_agent` on their AgentLedger history. The chain comes back INTACT — 847 decisions, unbroken, fully auditable back to day one.
+> **Example:** A fund evaluating an AI signal provider runs `audit_agent` on their AgentLedger history. The chain comes back INTACT 847 decisions, unbroken, fully auditable back to day one.
 >
 > ### 🏥 Medical AI Agents
-> Medical AI agents are making treatment recommendations, flagging drug interactions, and prioritizing diagnoses. Regulators and hospitals need to audit these decisions. AgentLedger gives every medical agent decision a permanent, immutable reasoning trace — what data it analyzed, what it considered, what it recommended, and why.
+> Medical AI agents are making treatment recommendations, flagging drug interactions and prioritizing diagnoses. Regulators and hospitals need to audit these decisions. AgentLedger gives every medical agent decision a permanent, immutable reasoning trace what data it analyzed, what it considered, what it recommended, and why.
 >
-> **Example:** An AI triage agent logs every patient prioritization decision to AgentLedger. When a decision is questioned, the full reasoning trace is retrieved by root hash — immutable, timestamped, exactly as it was at the moment of decision.
+> **Example:** An AI triage agent logs every patient prioritization decision to AgentLedger. When a decision is questioned, the full reasoning trace is retrieved by root hash immutable, timestamped, exactly as it was at the moment of decision.
 >
 > ### 📜 Legal AI Agents
 > Legal AI agents draft contracts, interpret clauses, and provide legal analysis. When a contract dispute arises, the question "what was the AI thinking when it drafted this?" needs an answer. AgentLedger stores every legal agent decision permanently so the reasoning is always retrievable.
 >
-> **Example:** An AI contract drafting agent logs its clause selection reasoning to AgentLedger. In a dispute, the law firm retrieves the exact reasoning trace — which precedents it considered, what risk factors it weighed, why it chose specific language.
+> **Example:** An AI contract drafting agent logs its clause selection reasoning to AgentLedger. In a dispute, the law firm retrieves the exact reasoning trace which precedents it considered, what risk factors it weighed, why it chose specific language.
 >
 > ### ⚙️ Autonomous Operations Agents
 > Agents running infrastructure, managing deployments, or making operational decisions at scale need accountability. When something goes wrong, you need to know exactly what the agent decided and why. AgentLedger gives every autonomous operations agent a tamper-proof decision log that cannot be altered after the fact.
 >
-> **Example:** An AI DevOps agent logs every deployment decision to AgentLedger. When a deployment causes an outage, the full chain of decisions leading up to it is retrievable — exactly what the agent was thinking at each step, in order, verified intact.
+> **Example:** An AI DevOps agent logs every deployment decision to AgentLedger. When a deployment causes an outage, the full chain of decisions leading up to it is retrievable exactly what the agent was thinking at each step, in order, verified intact.
 >
 > ---
 >
@@ -159,7 +159,7 @@ The entire system runs on 0G. Reasoning traces go to **0G Storage**. The agent d
 >
 > No wallet needed. No testnet tokens. Just install and go.
 >
-> AgentLedger uses **sponsored storage** — all 0G gas costs are covered. You only need an `AGENT_ID` to identify your agent.
+> AgentLedger uses **sponsored storage** all 0G gas costs are covered. You only need an `AGENT_ID` to identify your agent.
 >
 > ### Option 1 — Global install (recommended)
 >
@@ -333,9 +333,9 @@ The entire system runs on 0G. Reasoning traces go to **0G Storage**. The agent d
 > | Version | Feature | Status |
 > |---------|---------|--------|
 > | **v1.0.1** | MCP server, 5 tools, 0G Storage + KV, chain integrity, npm package | ✅ Live |
-> | **v1.1** | Sponsored storage — no wallet needed, AgentLedger absorbs all gas costs | 🔄 In progress |
-> | **v1.2** | Agent reputation leaderboard — public rankings by chain length and integrity score | 🗓 Planned |
-> | **v1.3** | Multi-chain support — store on 0G, verify on any EVM chain | 🗓 Planned |
+> | **v1.1** | Sponsored storage no wallet needed, AgentLedger absorbs all gas costs | 🔄 In progress |
+> | **v1.2** | Agent reputation leaderboard public rankings by chain length and integrity score | 🗓 Planned |
+> | **v1.3** | Multi-chain support store on 0G, verify on any EVM chain | 🗓 Planned |
 >
 > ---
 >
